@@ -20,7 +20,7 @@ require(["esri/map",
                   GraphicsLayer) {
    map = new Map("map",                      
     {
-    basemap: "topo",
+    basemap: "satellite",
     center: [0.6, 42.65],
     zoom: 12
   });
