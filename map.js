@@ -1,4 +1,5 @@
 var map;
+var IndiceDeVegetacion;
 require(["esri/map",
          "esri/geometry/Extent",
          "esri/layers/WebTiledLayer",
@@ -7,7 +8,8 @@ require(["esri/map",
          "esri/graphic",
          "esri/symbols/SimpleLineSymbol",
          "esri/Color",
-         "esri/layers/GraphicsLayer", 
+         "esri/layers/GraphicsLayer",
+         "esri/layers/ArcGISTiledMapServiceLayer",
          "dojo/domReady!"],
          function(Map,
                   Extent,
@@ -17,12 +19,13 @@ require(["esri/map",
                   Graphic,
                   SimpleLineSymbol,
                   Color,
-                  GraphicsLayer) {
+                  GraphicsLayer,
+                  ArcGISTiledMapServiceLayer) {
    map = new Map("map",                      
     {
     basemap: "satellite",
-    center: [0.6, 42.65],
-    zoom: 12
+    center: [-5.61, 40.44],
+    zoom: 11
   });
   var GraphicsLayerMap = new GraphicsLayer();
   map.addLayer(GraphicsLayerMap);
@@ -162,5 +165,102 @@ require(["esri/map",
 
   document.getElementById("baseMapGoogle").addEventListener("click", changeBaseMapGoogle);
    
-  
- });
+  IndiceDeVegetacion = {"NDVI": 
+    {"A2002": 
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
+      "satelite": "Landsat 7"}
+    ,
+    "A2003":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2007":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2009":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2010":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2012":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
+      "satelite": "Landsat 5"}
+    },
+    "NBR": 
+    {"A2002": 
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
+      "satelite": "Landsat 7",}
+    ,
+    "A2003":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2007":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2009":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2010":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2012":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
+      "satelite": "Landsat 5"}
+    }
+  };
+  for(i=0;i<document.getElementsByName("año").length;i++){
+    document.getElementsByName("año")[i].addEventListener("click", function(){
+      if(map.getLayer("Año") != undefined){
+        map.removeLayer(map.getLayer("Año"))
+      }
+      document.getElementById("subtitleYear").innerHTML = this.getAttribute("datevalue");
+      var seleccion = this.getAttribute("date");
+      var IdV = document.getElementById("indiceDeVegetacion").value;
+      var TileIV = new ArcGISTiledMapServiceLayer(IndiceDeVegetacion[IdV][seleccion].url, {id:"Año"});
+      map.addLayer(TileIV);
+    })
+  }
+  document.getElementById("indiceDeVegetacion").addEventListener("click", function(){
+    if(document.getElementById("indiceDeVegetacion").value == "NDVI"){
+      document.getElementById("indiceDeVegetacion").value = "NBR";
+      for(i=0;i<document.getElementsByName("año").length;i++){
+        if(document.getElementsByName("año")[i].checked == true){
+          var dateElemento = document.getElementsByName("año")[i].getAttribute("date");
+          var datevalueElemento = document.getElementsByName("año")[i].getAttribute("datevalue");
+        }
+      }
+      if(map.getLayer("Año") != undefined){
+        map.removeLayer(map.getLayer("Año"))
+      }
+      var IdV = document.getElementById("indiceDeVegetacion").value;
+      var TileIV = new ArcGISTiledMapServiceLayer(IndiceDeVegetacion[IdV][dateElemento].url, {id:"Año"});
+      map.addLayer(TileIV);
+    }
+    else if(document.getElementById("indiceDeVegetacion").value == "NBR"){
+      document.getElementById("indiceDeVegetacion").value = "NDVI";
+      for(i=0;i<document.getElementsByName("año").length;i++){
+        if(document.getElementsByName("año")[i].checked == true){
+          var dateElemento = document.getElementsByName("año")[i].getAttribute("date");
+          var datevalueElemento = document.getElementsByName("año")[i].getAttribute("datevalue");
+        }
+      }
+      if(map.getLayer("Año") != undefined){
+        map.removeLayer(map.getLayer("Año"))
+      }
+      var IdV = document.getElementById("indiceDeVegetacion").value;
+      alert(dateElemento + " " + datevalueElemento + " " + IdV);
+      /*
+      var TileIV = new ArcGISTiledMapServiceLayer(IndiceDeVegetacion[datevalueElemento][dateElemento].url, {id:"Año"});
+      map.addLayer(TileIV);
+      */
+    }
+  })
+});

@@ -74,3 +74,46 @@ html, body, #map {
   text-align: center;
   background-color: darkgrey;
 }
+
+.carrusel{
+  position: absolute;
+  background-color: white;
+  top: 50px;
+  width: 11%;
+  height:3%;
+  margin: auto;
+  padding: auto;
+  left: 550px;
+  z-index: 1;
+}
+.carruselradio{
+  padding: 10%;
+}
+.carruselTitle{
+  position: absolute;
+  background-color: black;
+  text-align: center;
+  color: white;
+  top: 20px;
+  width: 11%;
+  height:4%;
+  margin: auto;
+  padding: auto;
+  left: 550px;
+  z-index: 1;
+  font-size:20px;
+}
+.carruselSubtitle{
+    position: absolute;
+  background-color: black;
+  text-align: center;
+  color: white;
+  top: 70px;
+  width: 11%;
+  height:3,5%;
+  margin: auto;
+  padding: auto;
+  left: 550px;
+  z-index: 1;
+  font-size:22px;
+}
