@@ -10,6 +10,8 @@ require(["esri/map",
          "esri/Color",
          "esri/layers/GraphicsLayer",
          "esri/layers/ArcGISTiledMapServiceLayer",
+         "esri/InfoTemplate",
+         "esri/dijit/PopupTemplate",
          "dojo/domReady!"],
          function(Map,
                   Extent,
@@ -20,7 +22,9 @@ require(["esri/map",
                   SimpleLineSymbol,
                   Color,
                   GraphicsLayer,
-                  ArcGISTiledMapServiceLayer) {
+                  ArcGISTiledMapServiceLayer,
+                  InfoTemplate,
+                  PopupTemplate) {
    map = new Map("map",                      
     {
     basemap: "satellite",
@@ -263,4 +267,47 @@ require(["esri/map",
       */
     }
   })
+  
+  for(i=0;i<document.getElementsByClassName("featureCheckbox").length;i++){
+    document.getElementsByClassName("featureCheckbox")[i].addEventListener("click", function(i){
+      var featureUrl = "http://services2.arcgis.com/48UigidgWzi72h11/arcgis/rest/services/Vegetacion_Tipo/FeatureServer/" + this.getAttribute("num");
+      if(this.checked == true){
+        debugger;
+        var infoTemplate = new InfoTemplate("Atributos", "${*}");
+        var template = new PopupTemplate({
+          title: "Atributos",
+
+          fieldInfos: [
+            { fieldName: "MEAN_2002", visible: true, format: { places: 5 } },
+            { fieldName: "MEAN_2003", visible: true, format: { places: 5 } },
+            { fieldName: "MEAN_2007", visible: true, format: { places: 5 } },
+            { fieldName: "MEAN_2009", visible: true, format: { places: 5 } },
+            { fieldName: "MEAN_2010", visible: true, format: { places: 5 } },
+            { fieldName: "MEAN_2012", visible: true, format: { places: 5 } }
+          ],
+
+          mediaInfos: [
+            {
+              type: "linechart",
+              value: { 
+                fields: [ 
+                  "MEAN_2002","MEAN_2003","MEAN_2007","MEAN_2009","MEAN_2010","MEAN_2012"
+                ] 
+              }
+            }
+          ],
+          showAttachments : true
+        });
+        map.addLayer(new FeatureLayer(featureUrl,{
+          id: this.parentElement.innerText,
+          outFields: ["MEAN_2002","MEAN_2003","MEAN_2007","MEAN_2009","MEAN_2010","MEAN_2012"],
+          infoTemplate: template
+        }));
+      }
+      else if(this.checked == false){
+        debugger;
+        map.removeLayer(map.getLayer(this.parentElement.innerText));
+      }
+    })
+  }
 });

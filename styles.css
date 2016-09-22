@@ -49,6 +49,7 @@ html, body, #map {
   right: 155px;
   top: 55px;
   display: none;
+  background-color: white;
 }
 
 .buttonHide{
@@ -116,4 +117,7 @@ html, body, #map {
   left: 550px;
   z-index: 1;
   font-size:22px;
+}
+.featureDiv{
+  background-color: white;
 }
