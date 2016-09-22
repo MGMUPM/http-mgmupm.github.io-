@@ -270,7 +270,7 @@ require(["esri/map",
   
   for(i=0;i<document.getElementsByClassName("featureCheckbox").length;i++){
     document.getElementsByClassName("featureCheckbox")[i].addEventListener("click", function(i){
-      var featureUrl = "http://services2.arcgis.com/48UigidgWzi72h11/arcgis/rest/services/Vegetacion_Tipo/FeatureServer/" + this.getAttribute("num");
+      var featureUrl = "https://services2.arcgis.com/48UigidgWzi72h11/arcgis/rest/services/Vegetacion_Tipo/FeatureServer/" + this.getAttribute("num");
       if(this.checked == true){
         debugger;
         var infoTemplate = new InfoTemplate("Atributos", "${*}");
