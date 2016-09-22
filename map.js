@@ -167,52 +167,52 @@ require(["esri/map",
    
   IndiceDeVegetacion = {"NDVI": 
     {"A2002": 
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
       "satelite": "Landsat 7"}
     ,
     "A2003":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2007":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2009":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2010":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2012":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
       "satelite": "Landsat 5"}
     },
     "NBR": 
     {"A2002": 
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
       "satelite": "Landsat 7",}
     ,
     "A2003":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2007":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2009":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2010":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2012":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
       "satelite": "Landsat 5"}
     }
   };
