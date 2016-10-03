@@ -213,7 +213,7 @@ require(["esri/map",
       "satelite": "Landsat 5"}
     ,
     "A2010":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_20010/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2010/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2011":
