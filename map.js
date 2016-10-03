@@ -32,6 +32,7 @@ require(["esri/map",
     zoom: 11
   });
   var GraphicsLayerMap = new GraphicsLayer();
+  GraphicsLayerMap.id = "Capa de graáficos";
   map.addLayer(GraphicsLayerMap);
   //Funcion para introducir el mapabase de satelite de Esri, o eliminar el resto de mapasbase
   function changeBaseMapEsri (){
@@ -135,7 +136,7 @@ require(["esri/map",
     var featurelayerIntroducida = new FeatureLayer(PosibleURL,{
         outFields: ["*"]
       });
-      
+    featurelayerIntroducida.id = x;
     map.addLayer(featurelayerIntroducida);
     
     var NuevaFeature = document.createElement("div");
@@ -196,32 +197,37 @@ require(["esri/map",
     },
     "NBR": 
     {"A2002": 
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2002/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2002/MapServer",
       "satelite": "Landsat 7",}
     ,
     "A2003":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LE7_NDVI_2003/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2003/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2007":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2007/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2007/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2009":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2009/MapServer",
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2009/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2010":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2010/MapServer",
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_20010/MapServer",
+      "satelite": "Landsat 5"}
+    ,
+    "A2011":
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2012":
-      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/LT5_NDVI_2012/MapServer",
+      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
       "satelite": "Landsat 5"}
     }
   };
   for(i=0;i<document.getElementsByName("año").length;i++){
     document.getElementsByName("año")[i].addEventListener("click", function(){
+      debugger;
       if(map.getLayer("Año") != undefined){
         map.removeLayer(map.getLayer("Año"))
       }
@@ -260,11 +266,9 @@ require(["esri/map",
         map.removeLayer(map.getLayer("Año"))
       }
       var IdV = document.getElementById("indiceDeVegetacion").value;
-      alert(dateElemento + " " + datevalueElemento + " " + IdV);
-      /*
-      var TileIV = new ArcGISTiledMapServiceLayer(IndiceDeVegetacion[datevalueElemento][dateElemento].url, {id:"Año"});
+      var TileIV = new ArcGISTiledMapServiceLayer(IndiceDeVegetacion[IdV][dateElemento].url, {id:"Año"});
       map.addLayer(TileIV);
-      */
+      
     }
   })
   
