@@ -209,19 +209,19 @@ require(["esri/map",
       "satelite": "Landsat 5"}
     ,
     "A2009":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2009/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2009/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2010":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_20010/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_20010/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2011":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
       "satelite": "Landsat 5"}
     ,
     "A2012":
-      {"url": "http://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
+      {"url": "https://tiles.arcgis.com/tiles/48UigidgWzi72h11/arcgis/rest/services/NBR_v2_2011/MapServer",
       "satelite": "Landsat 5"}
     }
   };
