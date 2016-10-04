@@ -5,52 +5,83 @@
     <script src="https://js.arcgis.com/3.17/"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <title>Best-Base-Maps</title>
-	<script src="map.js"></script>
+	 <script src="map.js"></script>
+   <script src="common.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="map" class="full">
-      <input id="indiceDeVegetacion" type="button" class="carruselTitle" value="NDVI"></input>
-      <div class="carrusel">
-        <input type="radio" name="año" date="A2002" datevalue="2002" class="carruselradio"></input>
-        <input type="radio" name="año" date="A2003" datevalue="2003" class="carruselradio"></input>
-        <input type="radio" name="año" date="A2007" datevalue="2007" class="carruselradio"></input>
-        <input type="radio" name="año" date="A2009" datevalue="2009" class="carruselradio"></input>
-        <input type="radio" name="año" date="A2010" datevalue="2010" class="carruselradio"></input>
-        <input type="radio" name="año" date="A2012" datevalue="2012" class="carruselradio"></input>
-      </div>
-      <span class="carruselSubtitle" id="subtitleYear">2002</span>
-      <button id="baseMapESRI" type="button" class="mapaBaseButton">ESRI</button>
-      <button id="baseMapGoogle" type="button" class="mapaBaseButton">Google</button>
-      <button id="baseMapDigitalGlobe" type="button" class="mapaBaseButton">DigitalGlobe</button>
-      <button id="URLButton" type="button" class="Cuadrado">¡!</button>
-      <div id="DivURL">
-        <input type="text" name="URL" id="InputURL">
-        <button id="LanzarURLButton" class="buttonHide"></button>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="0">Prado de sebes</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="1">Pinares</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="2">Mosaico desarbolado</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="3">Matorral</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="4">Herbazal</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="5">Mezcla de encinar y melojar</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="6">Dehesas</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="7">Cultivos</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="8">Encinares</input></div>
-        <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="9">Area del incendio</input></div>
+    <div id="menuBar" class="menu">
+      <div id="Inicio"><h1 class="section">Inicio</h1></div>
+      <div id="TDT"><h1 class="section">Tratamiento de imagenes</h1></div>  
+      <div id="Mapa"><h1 class="section">Mapa</h1></div>
+    </div>
+    <div id="Principal" class="full">
+      <div id ="Start" style="display: block;">
+        <div id="title"> 
+          <h1>Trabajo Fin de Grado</h1>
+          <h2>Evaluación del daño en  6.275,00 ha incendiadas en el año 2003 <br>en el suroeste de Avila </h2>
+          <h5>por Manuel Garcia Montes</h5>
+          <img id="ImagenAgronomos" src=".\Imagenes\ETSIAAB.png"></img>
+          <!--<img id="ImagenUPM" src=".\Imagenes\institucional.png"></img>-->
+        </div>
+        <div>
+          <p class="texto">
+            Los incendios producen de manera recurrente pérdidas económicas y ambientales, siendo países como España los más afectados, estos problemas aumentan debido a las altas temperaturas y las bajas precipitaciones principalmente, así como el estado de la vegetación y el viento.
+            En el año 2014 la superficie forestal arrasada por incendios fue de 46.158,98 hectáreas, la menor superficie arrasada por este tipo de catástrofe desde 1971, la media durante la última década fue de 116.797,35 (MAGRAMA), a 26 de Julio de 2015 la superficie afectada por los incendios es de 52.227 hectáreas (LAVERDAD). Los incendios producen daños en propiedades,  medios  de subsistencia, pérdida de vidas humanas, además de influir en el calentamiento global,  la contaminación del aire, la desertificación y la pérdida de biodiversidad entre otros.
+           La Escuela Técnica Superior de Ingenieros Agrónomos de la Universidad Técnica de Madrid enseña en el Grado de Ingeniería Agroambiental  los problemas que se pueden producir, tanto en el medio agrario como en cualquier medio afectado, debido  a la contaminación o falta de agua, la pérdida de suelo de terreno agrícola, los gases efecto invernadero y la contaminación del aire en general y la pérdida de biodiversidad. 
+           El presente Trabajo Fin de Grado se realiza con objeto  de poner en práctica  los conocimientos  adquiridos durante el Grado de Ingeniería Agroambiental.
 
+          <br>
+            
+          </p>
       </div>
-      <!--
-      <div class="ElementosCreados">
-        
-        <div class="ElementoCreado">
-          <p>Feature</p>
-        </div>
-        <div class="ElementoCreado">
-          <p>Feature</p>
-        </div>
       </div>
-    -->
+      <div id="Teledeteccion">
+      </div>
+      <div id="map" class="full" style="display: none;">
+        <input id="indiceDeVegetacion" type="button" class="carruselTitle" value="NDVI"></input>
+        <div class="carrusel">
+          <input type="radio" name="año" date="A2002" datevalue="2002" class="carruselradio"></input>
+          <input type="radio" name="año" date="A2003" datevalue="2003" class="carruselradio"></input>
+          <input type="radio" name="año" date="A2007" datevalue="2007" class="carruselradio"></input>
+          <input type="radio" name="año" date="A2009" datevalue="2009" class="carruselradio"></input>
+          <input type="radio" name="año" date="A2010" datevalue="2010" class="carruselradio"></input>
+          <input type="radio" name="año" date="A2012" datevalue="2012" class="carruselradio"></input>
+        </div>
+        <span class="carruselSubtitle" id="subtitleYear">2002</span>
+        <button id="baseMapESRI" type="button" class="mapaBaseButton">ESRI</button>
+        <button id="baseMapGoogle" type="button" class="mapaBaseButton">Google</button>
+        <button id="baseMapDigitalGlobe" type="button" class="mapaBaseButton">DigitalGlobe</button>
+        <button id="URLButton" type="button" class="Cuadrado">¡!</button>
+        <div id="DivURL">
+          <input type="text" name="URL" id="InputURL">
+          <button id="LanzarURLButton" class="buttonHide"></button>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="0">Prado de sebes</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="1">Pinares</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="2">Mosaico desarbolado</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="3">Matorral</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="4">Herbazal</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="5">Mezcla de encinar y melojar</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="6">Dehesas</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="7">Cultivos</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="8">Encinares</input></div>
+          <div class="featureDiv"><input type="checkbox" class="featureCheckbox" num="9">Area del incendio</input></div>
+
+        </div>
+        <!--
+        <div class="ElementosCreados">
+          
+          <div class="ElementoCreado">
+            <p>Feature</p>
+          </div>
+          <div class="ElementoCreado">
+            <p>Feature</p>
+          </div>
+        </div>
+      -->
+      </div>
     </div>
   </body>
 </html>

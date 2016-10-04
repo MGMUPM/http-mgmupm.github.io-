@@ -28,7 +28,7 @@ require(["esri/map",
    map = new Map("map",                      
     {
     basemap: "satellite",
-    center: [-5.61, 40.44],
+    center: [-5.91, 40.54],
     zoom: 11
   });
   var GraphicsLayerMap = new GraphicsLayer();
