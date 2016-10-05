@@ -168,3 +168,16 @@ html, body,#Principal {
   left:120px;
   padding: 10px;
 }
+.left{
+  position: relative;
+  left:120px;
+  display: inline-block;
+}
+table th {
+    
+    background-color: #f1f1f1;
+}
+table td, table th {
+    border: 1px dotted #ccc;
+    padding: .25em;
+}
