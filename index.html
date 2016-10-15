@@ -20,7 +20,7 @@
     <div id="Principal" class="full">
       <div id ="Start" style="display: block;">
         <div id="title"> 
-          <h1>Trabajo Fin de Grado</h1>
+          <h1></h1>
           <h2>Evaluación del daño en  6.275,00 ha incendiadas en el año 2003 <br>en el suroeste de Avila </h2>
           <h5>por Manuel Garcia Montes</h5>
           <img id="ImagenAgronomos" src=".\Imagenes\ETSIAAB.png"></img>
@@ -40,7 +40,52 @@
     </div>
     <div id="Teledeteccion" style="display: none;">
       <div class="left"><h3>Tratamiento de imagenes Landsat 5 y 7</h3></div>
+        <div>
+          
+          <div class="left">
+            L<sub>λ</sub> = G<sub>rescale</sub> × Q<sub>cal</sub> + B<sub>rescale</sub>
+            <br>
+        
+      </div>
       <div>
+        <div class="left">
+          <div class="leyenda">
+            L<sub>λ</sub>= Spectral radiance at the sensor's aperture [(W / m<sup>2</sup>*sr*m)]
+            <br>
+            Q<sub>cal</sub>= Quantized calibrated pixel value [DN]
+            <br>
+            G<sub>rescale</sub>= Band-specific rescaling gain factor [(W / m<sup>2</sup>*sr*m))/DN]
+            <br>
+            B<sub>rescale</sub>= Band-specific rescaling bias factor [W / m<sup>2</sup>*sr*μm]
+            <br>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="left">
+          ρ<sub>λ</sub> =
+             ( π * L<sub>λ</sub>* d2 )
+             /
+             (ESUN<sub>λ</sub> * cos θ<sub>s</sub>)
+        </div>
+      </div>
+      <div>
+        <div class="left">
+          <div class="leyenda">
+            ρ<sub>λ</sub>= Planetary TOA reflectance [unitless]
+            <br>
+            π= Mathematical constant equal to ~3.14159 [unitless]
+            <br>
+            L<sub>λ</sub>= Spectral radiance at the sensor's aperture [W / m<sup>2</sup>*sr*μm)]
+            <br>
+            d= Earth–Sun distance [astronomical units]
+            <br>
+            ESUN<sub>λ</sub>= Mean exoatmospheric solar irradiance [W / m<sup>2</sup>*μm)]
+            <br>
+            θ<sub>s</sub>= Solar zenith angle [degrees]
+          </div>
+        </div>
+      </div>
         <table class="left">
           <thead>
             <tr>
@@ -142,6 +187,7 @@
         </table>
       </div>
       <div class="left"><h3>Tratamiento de imagenes Landsat 8</h3></div>
+      <!--
       <div>
         <p class="left">L<sub>λ</sub>  =  M<sub>L</sub>*Q<sub>cal</sub> + A<sub>L</sub></p>
       </div>
@@ -153,16 +199,93 @@
         Q<sub>cal</sub> = L1 pixel value in DN<br>
       </p>
       </div>
+      -->
       <div>
         <p class="left">ρ<sub>λ</sub><sup>'</sup>  =  M<sub>ρ</sub>*Q<sub>cal</sub> + A<sub>ρ</sub></p>
       </div>
       <div>
         <p class="left">
         ρ<sub>λ</sub><sup>'</sup> = TOA Planetary Spectral Reflectance, without correction for solar angle.  (Unitless)
+        <br>
         M<sub>ρ</sub> = Reflectance multiplicative scaling factor for the band (REFLECTANCEW_MULT_BAND_n from the metadata).
+        <br>
         A<sub>ρ</sub> = Reflectance additive scaling factor for the band (REFLECTANCE_ADD_BAND_N from the metadata).
+        <br>
         Q<sub>cal</sub>  = L1 pixel value in DN
+        <br>
       </p>
+      </div>
+      <div>
+        <p class="left">ρ<sub>λ</sub> =  ρ<sub>λ</sub><sup>'</sup>sin(θ)</p>
+      </div>
+      <div>
+        <p class="left">
+        ρ<sub>λ</sub>         =          TOA Planetary Reflectance. (Unitless)
+        <br>
+        θ          =          Solar Elevation Angle (from the metadata, or calculated)
+        <br>
+      </p>
+      </div>
+      <div>
+        <table class="left">
+          <thead>
+            <tr>
+              <th colspan="3">Landsat 7</th>
+            </tr>
+            <tr>
+              <th>Banda</th>
+              <th>REFLECTANCE_MULT_BAND</th>
+              <th>REFLECTANCE_ADD_BAND</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Banda 1</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 2</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 3</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 4</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 5</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 6</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 7</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 8</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+            <tr>
+              <th>Banda 9</th>
+              <th>2.0000E-05</th>
+              <th>-0.100000</th>
+            </tr>
+          </tbody>
+        </table>
       </div>
         <p class="texto">EN CONSTRUCCION</p>
       </div>

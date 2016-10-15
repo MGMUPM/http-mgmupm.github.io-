@@ -6,9 +6,9 @@ html, body,#Principal {
 #map {
     height: 100%;
     position: absolute;
-    width: 100%;
+    width: 91%;
     top: 0px;
-    left: 0px;
+    left: 120px;
   }
 .mapaBaseButton{
   height: 3%;
@@ -137,10 +137,11 @@ html, body,#Principal {
     background-color: #1c3749;  
     padding-bottom: 0px;
 }
-#map_zoom_slider{
+/*#map_zoom_slider{
   position: absolute;
   left: 150px;
 }
+*/
 .section{
   width: 80px;
   height: 80px;
@@ -180,4 +181,7 @@ table th {
 table td, table th {
     border: 1px dotted #ccc;
     padding: .25em;
+}
+.leyenda{
+    border-style: ridge;
 }
